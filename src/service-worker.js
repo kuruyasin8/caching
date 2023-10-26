@@ -12,10 +12,10 @@ cleanupOutdatedCaches();
 const assets = self.__WB_MANIFEST;
 const cacheName = `caching-pwa-${process.env.REACT_APP_VERCEL_GIT_COMMIT_SHA}`;
 
-const preCacheController = new PrecacheController({ cacheName });
-preCacheController.addToCacheList(assets);
-
 self.addEventListener("install", (event) => {
+  const preCacheController = new PrecacheController({ cacheName });
+  preCacheController.addToCacheList(assets);
+
   preCacheController.install(event);
 });
 
